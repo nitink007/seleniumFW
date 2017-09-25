@@ -21,7 +21,7 @@ public class TestBase {
 				System.out.println(System.getProperty("user.dir"));
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
 				driver = new ChromeDriver();
-			}
+			} 
 		}
 		
 		else if (System.getProperty("os.name").contains("Mac")) {
