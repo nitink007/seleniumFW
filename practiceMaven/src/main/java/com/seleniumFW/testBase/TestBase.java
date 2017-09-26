@@ -6,8 +6,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestBase {
 	
-	WebDriver driver;
+	private WebDriver driver;
 	
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+
+
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+
+
+
 	public void getBrowser(String browser) {
 		
 		System.out.println(System.getProperty("os.name"));
@@ -42,8 +54,8 @@ public class TestBase {
 	
 	
 	public static void main(String[] args) {
-		TestBase test = new TestBase();
-		test.getBrowser("chrome");
+//		TestBase test = new TestBase();
+//		test.getBrowser("chrome");
 	}
 
 }
