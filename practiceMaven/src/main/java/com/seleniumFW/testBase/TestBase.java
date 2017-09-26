@@ -1,23 +1,22 @@
 package com.seleniumFW.testBase;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestBase {
 	
-	private WebDriver driver;
+	WebDriver driver;
 	
-	public WebDriver getDriver() {
-		return driver;
-	}
-
-
-
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
-	}
-
+	public Properties OR;
+	public File f1;
+	public FileInputStream file;
 
 
 	public void getBrowser(String browser) {
@@ -51,11 +50,35 @@ public class TestBase {
 		}
 	}
 	
+	public void loadPropertiesFile() throws IOException {
+		OR = new Properties();
+		
+		//config.properties file loading
+		f1 = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\seleniumFW\\config\\config.properties");
+		file = new FileInputStream(f1);
+		OR.load(file);
+		
+		//OR.properties file loading
+		f1 = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\seleniumFW\\config\\OR.properties");
+		file = new FileInputStream(f1);
+		OR.load(file);
+				
+	}
 	
+	public void getScreenShot(String imageName) {
+		
+	}
 	
-	public static void main(String[] args) {
-//		TestBase test = new TestBase();
+	public void getpropertiesdata() {
+		
+	}
+	
+	public static void main(String[] args) throws IOException {
+		TestBase test = new TestBase();
 //		test.getBrowser("chrome");
+		test.loadPropertiesFile();
+		System.out.println(test.OR.getProperty("testname"));
+		
 	}
 
 }
